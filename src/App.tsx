@@ -127,7 +127,7 @@ function App() {
                       updateQuantity(option.id, Number(event.target.value))
                     }
                   >
-                    {Array.from({ length: 100 }, (_, index) => index + 1).map((amount) => (
+                    {Array.from({ length: 200 }, (_, index) => index + 1).map((amount) => (
                       <option key={amount} value={amount}>
                         {amount}
                       </option>
