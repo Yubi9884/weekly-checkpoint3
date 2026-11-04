@@ -41,30 +41,30 @@ export class QuantityDecorator implements IStationeryItem {
 
 export class ExerciseBooks extends BaseStationeryItem {
   constructor() {
-    super('Exercise Books', 30)
+    super('Exercise Books', 26)
   }
 }
 
 export class Pens extends BaseStationeryItem {
   constructor() {
-    super('Pens', 12)
+    super('Pens', 11)
   }
 }
 
 export class Pencils extends BaseStationeryItem {
   constructor() {
-    super('Pencils', 10)
+    super('Pencils', 8)
   }
 }
 
 export class Sharpener extends BaseStationeryItem {
   constructor() {
-    super('Sharpener', 18)
+    super('Sharpener', 19)
   }
 }
 
 export class GlueSticks extends BaseStationeryItem {
   constructor() {
-    super('Glue Sticks', 25)
+    super('Glue Sticks', 26)
   }
 }

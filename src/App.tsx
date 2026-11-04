@@ -35,6 +35,7 @@ const createInitialSelections = (): Record<string, ItemSelection> =>
   )
 
 function App() {
+  // Store each of the item's  in checkbox selection and quantity.
   const [selectedItems, setSelectedItems] = useState<Record<string, ItemSelection>>(
     createInitialSelections,
   )
@@ -61,20 +62,20 @@ function App() {
         .filter((item): item is NonNullable<typeof item> => item !== null),
     [selectedItems],
   )
-
+// Add the selected item costs to update the displayed cart total.
   const totalCost = selectedLines.reduce((sum, item) => sum + item.total, 0)
 
-  const toggleSelection = (id: string, checked: boolean) => {
-    setSelectedItems((current) => ({
-      ...current,
-      [id]: {
-        ...current[id],
-        checked,
-        quantity: checked ? Math.max(current[id]?.quantity ?? 1, 1) : 0,
-      },
-    }))
-  }
-
+  // Update selection while keeping the quantity within the dropdown range.
+const toggleSelection = (id: string, checked: boolean) => {
+  setSelectedItems((current) => ({
+    ...current,
+    [id]: {
+      ...current[id],
+      checked,
+      quantity: Math.max(current[id]?.quantity ?? 1, 1),
+    },
+  }))
+}
   const updateQuantity = (id: string, quantity: number) => {
     const safeQuantity = Number.isNaN(quantity) ? 1 : Math.max(1, quantity)
 
